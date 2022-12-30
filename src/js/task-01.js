@@ -1,12 +1,17 @@
-"use strict";
+//Напиши скрипт, який:
 
-const totalCategories = document.querySelectorAll(".item");
-console.log(`Number of categories: ${totalCategories.length}`);
+//Порахує і виведе в консоль кількість категорій в ul#categories,
+ // тобто елементів li.item.
+//Для кожного элемента li.item у списку ul#categories,
+ // знайде і виведе в консоль текст заголовку елемента(тегу < h2 >) 
+  //і кількість елементів в категорії(усіх < li >, вкладених в нього).
 
-const categoriesArray = [...totalCategories]
-  .map(
-    categories => `Category: ${categories.children[0].textContent}
-Elements: ${categories.children[1].children.length}`
-  )
-  .join("\n");
-console.log(categoriesArray);
+
+
+const itemCategories = document.querySelectorAll('.item')
+console.log(`Number of categories: ${itemCategories.length}`)
+
+itemCategories.forEach((item) => {
+  console.log(`Category:${item.firstElementChild.textContent}`);
+  console.log(`Elements:${item.lastElementChild.children.length}`)
+})
