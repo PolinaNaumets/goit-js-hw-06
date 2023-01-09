@@ -14,12 +14,13 @@ const images = [
 ];
 
 const galleryEl = document.querySelector(".gallery");
+galleryEl.style="list-style-type:none; display: flex; justify-content: space-between; align-items: center";
 
-function addImages(imgs) {
-  imgs.map(image => galleryEl.insertAdjacentHTML("afterbegin",
-    `<li><img src=${image.url} alt = ${image.alt} width=400></li>`)
-  ).join("")
-}
-document.querySelector(".gallery").style="list-style-type:none; display: flex; justify-content: space-between; align-items: center";
+const galleryItems = images.map(image => {
+  return `<li ><img src="${image.url}" alt="${image.alt}" width = "400"> 
+  </li>`
+})
+galleryEl.insertAdjacentHTML("afterbegin", galleryItems.join(""))
 
-addImages(images);
+
+
